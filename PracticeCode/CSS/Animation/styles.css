@@ -1,0 +1,24 @@
+:root{
+    --my-color: rgba(134, 150, 32, 0.8);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* --my-color: rgba(134, 150, 32, 0.8);  It is working from here too */
+    --my-color : rgba(210, 111, 89, 0.5)
+}
+
+.container{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    border: 1px solid black;
+    background-color: var(--my-color);
+}
+
+.box{
+    background-color: blueviolet;
+    border: 1px solid black;
+    color: var(--my-color);
+}

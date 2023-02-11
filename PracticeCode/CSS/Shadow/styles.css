@@ -1,0 +1,49 @@
+div{
+    width: 30vw;
+    height: 25vh;
+    margin-top: 10px;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-shadow: 0 0 3px red;
+    text-shadow: 2px 2px 2px black, 0 0 3px red;
+    /* Adding border to text using text-shadow */
+    text-shadow: -1px 0 black, 1px 0 black, 0 -1px black, 0 1px black;
+
+    text-shadow: 3px 3px 3px green;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 2px 3px 5px darkblue;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+    
+}
+.boxShadowDiv{
+    box-shadow: 5px 5px 5px 10px red;
+    /* horizontal, vertical, blur, spread-radius, color */
+    box-shadow: 10px 10px 5px gray  inset;
+    /* Multiple Shadows */
+    box-shadow: 5px 5px red, 10px 10px blueviolet, 15px 15px yellowgreen;
+    /* Multiple Shadow with Blue Effect */
+    box-shadow: 5px 5px 5px red, 10px 10px 5px blueviolet, 15px 15px 5px yellowgreen;
+}
+.boxShadowDiv2{
+    margin-top: 30px;
+    border: none;
+    box-shadow: 0 2px 5px gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+.againDivShadow{
+    border: none;
+    box-shadow: -5px -5px 10px gold;  /* Adding shadow on another side */
+    /* How to add border to element using shadow */
+    box-shadow: -1px 0 black, 1px 0 black, 0 1px black, 0 -1px black;
+    box-shadow: 5px 5px 5px 10px green;
+}
+
+.revise{
+    margin-top: 20px;
+    border: 1px solid black;
+    box-shadow: 5px 5px;
+    box-shadow: -5px -5px 5px 5px red;
+}

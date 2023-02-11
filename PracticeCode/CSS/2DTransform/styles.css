@@ -1,0 +1,40 @@
+body{
+    background-color: antiquewhite;
+}
+div{
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    background-color: palevioletred;
+    margin: 20px;
+}
+.translateDiv{
+    /* move 300px on x axis and 80px on y axis */
+     /* transform: translate(300px, 80px);  */
+     /* transform: translate(-50px, -20px); */
+     transform: translateX(50px);
+}
+.rotateDiv{
+    transform: rotate(30deg); 
+    transform: rotate(-30deg);
+}
+.scaleDiv{
+    /* two times of its original width, and three times of its original height:  */
+    transform: scale(2, 3);
+    /* element to be half of its original width and height:  */
+    transform: scale(0.5, 0.5);
+    transform: scaleX(2); /* doubles the width of div */
+    transform: scaleX(0.5); /* makes the width of div to its half*/
+    transform: scaleY(2); /* doubles the height of div */
+    transform: scaleY(0.5); /* half of the height */
+ } 
+.skewDiv{
+    transform: skewX(-20deg);
+    transform: skewY(-20deg);
+    transform: skew(20deg, 10deg);
+    /* If the second parameter is not specified, it has a zero value so It skews the <div> element 20 degrees along the X-axis: */
+    transform: skew(20deg);
+}
+.marixDiv{
+    transform: matrix(1, -0.3, 0, 1, 0, 0);
+}

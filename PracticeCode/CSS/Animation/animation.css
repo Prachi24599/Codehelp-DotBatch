@@ -1,0 +1,49 @@
+.container{
+    width: 100%;
+    height: 254px;
+    background-color: antiquewhite;
+    border: 2px solid red;
+}
+.box{
+    border: 2px solid green;
+    height: 250px;
+    width: 250px;
+    background-color: palegreen;
+
+    animation-name: prachi;
+    animation-duration: 10s;
+    animation-iteration-count: 4;
+    animation-timing-function: ease-in;
+    animation-delay: 1s;
+    /* animation-direction: normal;  */
+    /* animation-direction: reverse; */
+    animation-direction: alternate;
+    /* animation-direction: alternate-reverse; */
+}
+
+@keyframes prachi{
+    0%{
+        border-radius: 100%;
+        background-color: blue;
+    }
+    30%{
+        transform: rotate(60deg);
+        background-color: brown;
+    }
+    60%{
+        transform: scaleY(2);
+        background-color: palevioletred;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+/* @keyframes prachi {
+    from{
+        width: 250px;
+    }
+    to{
+        width: 100%;
+    }
+} */

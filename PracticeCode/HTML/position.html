@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+      .wrapper {
+        height: 400px;
+        width: 400px;
+        background-color: antiquewhite;
+        position: relative;
+        border: 1px solid black;
+      }
+      .wrapper div {
+        width: 50px;
+        height: 50px;
+        background-color: seagreen;
+        border: 1px solid black;
+      }
+      .top-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .top-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .bottom-left {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .bottom-right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .middle {
+        /* top: 175px;
+        left: 175px; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="top-left">top-left</div>
+      <div class="top-right">top-right</div>
+      <div class="bottom-left">bottom-left</div>
+      <div class="bottom-right">bottom-right</div>
+      <div class="middle">middle</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+div{
+    width: 200px;
+    height: 100px;
+    background-color: cornflowerblue;
+    border: 1px solid black;
+}
+.rotated{
+    transform: rotateX(80deg);
+    transform: rotateY(150deg);
+    transform: rotateZ(80deg);
+}
+.scaled{
+    transform: perspective(10px) scaleZ(3);
+}

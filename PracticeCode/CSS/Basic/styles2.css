@@ -1,0 +1,19 @@
+body, html{
+    height: 100%;
+    width: 100%;
+}
+.parent{
+    height: 200px;
+    width: 200px;
+    background-color: antiquewhite;
+}
+.percentage{
+    width: 50%;
+    height: 50%;
+    background-color: seagreen;
+}
+.viewport{
+    width: 20vw;
+    height: 20vh;
+    background-color: palevioletred;
+}

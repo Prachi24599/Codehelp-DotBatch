@@ -1,0 +1,14 @@
+.container{
+    height: 300px;
+    border: 1px solid brown;
+    background-color: wheat;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-flow: row-reverse wrap;
+}
+  
+.box{
+    border: 1px solid black;
+    background-color: aqua;
+   width: 50px;
+}

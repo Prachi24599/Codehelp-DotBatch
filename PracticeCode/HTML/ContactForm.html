@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codehelp</title>
+  </head>
+  <body>
+    <h1>Welcome to CodeHelp</h1>
+    <h2>Contact Us Form</h2>
+    <form action="/" method="post">
+      <!-- Name -->
+      <label for="name">Name : </label>
+      <input type="text" name="name" placeholder="Enter Your Name" /> <br />
+      <!-- Email -->
+      <label for="email">Email : </label>
+      <input type="text" name="email" placeholder="Enter Your Email" /> <br />
+      <!-- Contact Number -->
+      <label for="contact">Contact Number : </label>
+      <input type="number" name="contact" placeholder="Enter Contact Number" />
+      <br />
+      <!-- Gender -->
+      <label for="gender">Gender :</label>
+      <input list="gender" name="gender" placeholder="Select Your Gender" />
+      <datalist id="gender">
+        <option value="Male"></option>
+        <option value="Female"></option>
+        <option value="Other"></option>
+      </datalist>
+      <br />
+      <!-- Date of Birth -->
+      <label for="dob">Date of Birth : </label>
+      <input type="date" name="dob" /> <br />
+      <!-- Rating -->
+      <label for="rating">Rating : </label>
+      <input type="radio" id="one" name="rating" value="1" />
+      <label for="one">1</label>
+      <input type="radio" id="two" name="rating" value="2" />
+      <label for="two">2</label>
+      <input type="radio" id="three" name="rating" value="3" />
+      <label for="three">3</label>
+      <input type="radio" id="four" name="rating" value="4" />
+      <label for="four">4</label>
+      <input type="radio" id="five" name="rating" value="5" />
+      <label for="five">5</label>
+      <br />
+      <!-- Message -->
+      <label for="msg">Enter Your Message : </label> <br />
+      <textarea
+        name="msg"
+        cols="40"
+        rows="7"
+        placeholder="Enter Your Message"
+      ></textarea>
+      <br />
+      <!-- Button -->
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button><br />
+      <!-- Social Media -->
+      <a href="#"
+        ><img src="images/youtube.png" alt="codehelp-youtuve" width="50px" />
+      </a>
+      <a href="#">
+        <img src="images/instagram.png" alt=codehelp-instagram" width="50px">
+      </a>
+      <a href="https://www.google.com"
+        ><img src="images/telegram.png" alt="codehelp-telegram" width="50px"
+      /></a>
+    </form>
+  </body>
+</html>

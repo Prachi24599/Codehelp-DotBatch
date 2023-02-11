@@ -1,0 +1,88 @@
+/* div p, article p {
+    background-color: blueviolet;
+} */
+main > p{ 
+    background-color: yellow;
+}
+h2 + p{
+    color: aliceblue;
+    font-size: xx-large;
+}
+h1 ~ p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.mydiv{
+    width: 100px;
+    height: 100px;
+    background-color: palevioletred;
+    padding: 10px;
+    border: 5px solid brown;
+    box-sizing: border-box;
+}
+.colorDiv{
+   
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    border: 1px solid black;
+    vertical-align: top;
+}
+.div1{
+    background-color: seagreen;
+}
+.div2{
+    background-color: rgb(50,20,90);
+}
+.div3{
+    background-color: #FFAABB;
+}
+.div4{
+    background-color: rgba(120, 60, 90, 0.9);
+}
+.div5{
+    background-color: #fc9; /* same as #ffcc99 */
+}
+.sp{
+    position: absolute;
+}
+h3{
+    color: rebeccapurple;
+}
+.one{
+    font-family: "Gill Sans Extrabold", sans-serif;
+    font-weight: bold;
+}
+.two{
+    font-family: monospace;
+}
+.three{
+    font-family: Serif;
+    color: brown !important ;
+}
+.four{
+    font-family: Times, "Times New Roman", Georgia, serif;
+}
+.five{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper { color: orange; }
+
+.wrapper p { color: red; }
+
+p.one { color: inherit; }
+
+p.two { color: initial; }
+
+p.three { color: unset; }
+
+.A{
+    font-style: normal;
+}
+.B{
+    font-style: italic;
+}
+.C{
+    font-style: oblique;
+}
