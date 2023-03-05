@@ -72,10 +72,64 @@ console.log(courses.includes({ num: 1, name: "prachi" })); //false
 
 //callback function
 let mycourse = courses.find(function (course) {
-  return courses.name === "pinku";
+  return course.name === "pinku";
 });
 console.log(mycourse);
 
 //arrow function
-let mycourse1 = courses.find((course) => courses.name === "prachi");
+let mycourse1 = courses.find((course) => course.name === "prachi");
 console.log(mycourse1);
+
+//Removing element from array
+let myarray = [1, 3, 5, 8, 9, 3, 4, 2];
+//removing last element
+myarray.pop();
+//removing first element
+myarray.shift();
+//removing middle element - at index 2 (ie 5);
+//splice(index of element to be removed, how many elemnets from that index we want to remove)
+myarray.splice(2, 1);
+console.log(myarray);
+
+//Emptying the array
+let first = [1, 2, 3, 4, 5];
+let second = first;
+
+//first = []; - It does not empty array, it points first to the empty array so second still have elements
+//what if we want to completly empty the both arrays
+//first.length = 0; //both array will become empty
+first.splice(0, first.length); //it also empty both the arrays
+
+// while (first.length > 0) {
+//   first.pop();
+// } - It'll also work
+
+console.log(first);
+console.log(second);
+
+//combining arrays
+let arr1 = [1, 3, 4];
+let arr2 = [7, 8, 9];
+let combined = arr1.concat(arr2);
+console.log(combined); //[1, 3, 4, 7, 8, 9]
+
+//slicing array
+let sliced = combined.slice(2, 5);
+console.log(sliced);
+
+//combining and slicing on objects
+let obj1 = [
+  { no: 1, name: "prachi" },
+  { no: 2, name: "pinku" },
+];
+
+let obj2 = [
+  { no: 3, name: "radha" },
+  { no: 4, name: "krishna" },
+];
+
+let com = obj1.concat(obj2);
+console.log(com);
+
+let sli = com.slice(2, 3);
+console.log(sli);
