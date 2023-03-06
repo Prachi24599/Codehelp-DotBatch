@@ -59,3 +59,28 @@ function simpleInterest(p, r = 4, n) {
 console.log(simpleInterest(1000, 5, 2));
 
 //console.log(simpleInterest(1000, undefined, 2)); - hack, not a good practice
+
+//GETTER AND SETTER
+//getter - access properties - read only
+//setter - change or muted properties
+let person = {
+  fName: "Prachi",
+  lName: "Polakhare",
+  //getter
+  get fullName() {
+    return `${this.fName} ${this.lName}`;
+  },
+  //setter
+  set fullName(value) {
+    let pair = value.split(" ");
+    this.fName = pair[0];
+    this.lName = pair[1];
+  },
+};
+
+//calling getter
+console.log(person.fullName);
+
+//calling setter
+person.fullName = "Eshika Shahu"; //this goes to setter
+console.log(person.fullName);
