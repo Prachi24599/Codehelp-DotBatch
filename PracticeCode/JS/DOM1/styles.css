@@ -1,0 +1,5 @@
+@media screen and (max-width: 500px) {
+  .section h3 {
+    display: none;
+  }
+}
