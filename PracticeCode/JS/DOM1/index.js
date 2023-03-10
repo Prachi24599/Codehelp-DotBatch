@@ -40,3 +40,26 @@ thirdLink.addEventListener("click", function (event) {
   event.preventDefault();
   console.log("Abhi maza aayega na bhidu");
 });
+
+let myDiv = document.createElement("div");
+
+function myFunction(event) {
+  // console.log(`Paragraph ${i} Clicked..`);
+  // console.log("Paragraph Clicked..");
+  console.log("TextContent Printing - " + event.target.textContent);
+}
+
+//adding listener directly on div
+myDiv.addEventListener("click", myFunction);
+
+for (let i = 1; i <= 10; i++) {
+  let newElement = document.createElement("p");
+
+  newElement.textContent = "This is para " + i;
+
+  // newElement.addEventListener("click", myFunction);
+  //adding all paragraphs in div
+  myDiv.appendChild(newElement);
+}
+
+document.body.appendChild(myDiv);
