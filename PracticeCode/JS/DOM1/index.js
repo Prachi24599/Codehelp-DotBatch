@@ -26,3 +26,17 @@ document.addEventListener("click", function () {
 document.removeEventListener("click", function () {
   console.log("This is diff funcion");
 });
+
+//Event Object
+const content = document.addEventListener("click", function (event) {
+  console.log(event);
+});
+
+//Preventing default action
+let links = document.querySelectorAll("a");
+let thirdLink = links[2];
+
+thirdLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("Abhi maza aayega na bhidu");
+});
