@@ -20,3 +20,21 @@ for (let i = 0; i < 100; i++) {
 document.body.appendChild(myDiv);
 const t4 = performance.now();
 console.log("This took " + (t4 - t3) + " ms");
+
+//Document Fragment
+const t5 = performance.now();
+
+let myFragment = document.createDocumentFragment();
+for (let i = 0; i < 100; i++) {
+  let newElement = document.createElement("p");
+  newElement.textContent = "Fragment Para " + i;
+  myFragment.appendChild(newElement);
+}
+document.body.appendChild(myFragment); // 1 reflow 1 repaint
+const t6 = performance.now();
+console.log("This took " + (t6 - t5) + " ms");
+
+//setTimeout function - function will execute after particular amount of time
+setTimeout(function () {
+  console.log("Hello Ji");
+}, 5000);
