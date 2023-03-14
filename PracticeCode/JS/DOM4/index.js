@@ -114,3 +114,5 @@ function init() {
 }
 let a = init();
 a();
+
+//closure gives access to outer function scope from inner funcation
