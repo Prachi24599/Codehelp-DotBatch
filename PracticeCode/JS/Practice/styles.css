@@ -1,0 +1,11 @@
+.mypara {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid brown;
+  display: inline-block;
+  padding: 4px;
+  background-color: palevioletred;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Pratice</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- When we use defer, In this case both the script and the HTML will load simultaneously and the
+    code will work. we could add script in head tag-->
+    <script src="index.js" defer></script>
+
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        //If we want to add inline js in head section then should add our code in event lister DOMContentLoaded
+        //means It'll execute the js code only when html is loaded completely
+      });
+    </script> -->
+  </head>
+  <body>
+    <p class="mypara">Player 1 : John</p>
+    <button>Click Me!</button>
+  </body>
+</html>
