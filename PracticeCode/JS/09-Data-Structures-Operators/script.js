@@ -83,8 +83,13 @@ const restaurant = {
       `Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPaste: function (ing1, ing2, ing3) {
+    console.log(`Made Pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
+/*
 //passing obj as fun argument
 restaurant.orderDelivery({
   time: '22:30',
@@ -136,3 +141,54 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+*/
+
+//SPREAD Operator (...)
+const arr = [3, 4, 5];
+const badArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badArr);
+
+//using spread operatoe
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+console.log(...newArr); //1 2 3 4 5
+
+const newMenu = [...restaurant.mainMenu, 'Pooran Poli'];
+console.log(newMenu);
+
+//copy - creating shallow copy of restaurant.mainMenu
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+//Join 2 Arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+//Spread operator not just works on arrays but all iterables
+//Iterables are Array, string, map, sets but NOT objects
+const str = 'Prachi';
+const letters = [...str, ' ', 'P.'];
+console.log(letters);
+console.log(...str); //P r a c h i
+// console.log(`${...str} Polakhare`); caught SyntaxError: Unexpected token '...' (at script.js:169:16)
+
+//Real world Example
+const ingredients = [
+  // prompt('Enter Ing1'),
+  // prompt('Enter Ing2'),
+  // prompt('Enter Ing3'),
+];
+console.log(ingredients);
+
+//restaurant.orderPaste(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPaste(...ingredients);
+
+//From ES6 onwards, the Spread operator also works on objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Prachi' };
+console.log(newRestaurant);
+
+//Shallow copy on objects works same
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Polakhare';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
