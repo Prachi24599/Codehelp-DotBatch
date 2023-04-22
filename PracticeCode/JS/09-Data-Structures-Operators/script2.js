@@ -43,3 +43,8 @@ if (restaurant.orderPizza) {
 }
 //using short circuit AND
 restaurant.orderPizza && restaurant.orderPizza('veggies', 'corn');
+
+console.log('-----Nullish Coalescing Operator.....');
+//nullish values are null or undefined
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect);
