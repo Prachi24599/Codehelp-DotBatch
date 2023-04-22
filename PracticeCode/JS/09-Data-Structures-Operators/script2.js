@@ -48,3 +48,34 @@ console.log('-----Nullish Coalescing Operator.....');
 //nullish values are null or undefined
 const guestCorrect = restaurant.numGuest ?? 10;
 console.log(guestCorrect);
+
+console.log('Logical Assignment Operator ( ||=, &&=, ??= )');
+const rest1 = {
+  name: 'Dhaba',
+  // numGuest: 20,
+  numGuest: 0,
+};
+const rest2 = {
+  name: 'Pimlico',
+  owner: 'Prachi',
+};
+
+//OR assignment operator
+// rest1.numGuest = rest1.numGuest || 10;
+// rest2.numGuest = rest2.numGuest || 10;
+//It can be written using OR assignment as
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
+
+//nullish assignment operator ??=
+rest1.numGuest ??= 10; //0
+rest2.numGuest ??= 10; //10
+
+//AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>'; //undefined
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+rest1.owner &&= '<ANONYMOUS>'; //why it did not store undefined in rest1 owner
+rest2.owner &&= '<ANONYMOUS>';
+console.log(rest1);
+console.log(rest2);
