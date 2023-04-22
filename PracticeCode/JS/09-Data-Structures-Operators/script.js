@@ -87,6 +87,11 @@ const restaurant = {
   orderPaste: function (ing1, ing2, ing3) {
     console.log(`Made Pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  },
 };
 
 /*
@@ -128,7 +133,7 @@ const obj = { a: 23, b: 7, c: 14 };
 console.log(a, b);
 
 //we want the opening hours of friday
-const { fri } = openingHours;
+const { fri } = restaurant.openingHours;
 console.log(fri);
 
 const {
@@ -143,6 +148,7 @@ const {
 console.log(o, c);
 */
 
+/*
 //SPREAD Operator (...)
 const arr = [3, 4, 5];
 const badArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -181,6 +187,7 @@ const ingredients = [
 console.log(ingredients);
 
 //restaurant.orderPaste(ingredients[0], ingredients[1], ingredients[2]);
+//passing arguments to the function using SPREAD operator
 restaurant.orderPaste(...ingredients);
 
 //From ES6 onwards, the Spread operator also works on objects
@@ -192,3 +199,50 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Polakhare';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+*/
+
+//REST operator -It actually does opposite of the spread operator
+//to collect multiple elements and condense them into an array.
+//The spread operator is to unpack an array
+//while rest is to pack elements into an array
+
+//1) Destructuring
+
+//Spread because right side of the assignment operator
+const arr1 = [1, 2, ...[3, 4]];
+console.log(arr1); //1 2 3 4
+
+//Rest because left side of (=) assignment operator
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others); //1 2 (3) [3, 4, 5]
+
+//REST(on left) = SPREAD(on right)
+const [Pizza, , Risotto, ...renaming] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+//It does not include any skipped elements, here pasta
+//rest pattern should always be last
+console.log(Pizza, Risotto, renaming);
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+//2) Functions
+//Rest - pack the numbers into an array
+const add = function (...numbers) {
+  console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+// add(2, 3);
+// add(5, 3, 2, 7);
+// add(1, 5, 2, 3, 7, 9, 5);
+
+const x = [23, 5, 7];
+add(...x); //Spread - unpack the array
+
+restaurant.orderPizza('mushrooms', 'olives', 'onion', 'spinach');
