@@ -8,6 +8,10 @@ const openingHours = {
     open: 7,
     close: 8,
   },
+  Wed: {
+    open: 0,
+    close: 9,
+  },
 };
 
 const restaurant = {
@@ -149,3 +153,26 @@ console.log(
 //on Arrays
 const users = [{ name: 'Prachi', email: 'hello@prachi.com' }];
 console.log(users[0]?.name ?? 'Not found');
+
+//Looping objects - Object Keys, Values and Entries
+//Object Property Names
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+//Object Value Names
+const values = Object.values(openingHours);
+console.log(values);
+
+//Entire Object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key}, we are open from ${open} to ${close}`);
+}
