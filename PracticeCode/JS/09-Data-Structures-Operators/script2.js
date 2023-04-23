@@ -1,10 +1,10 @@
 //Short Circuting with && and ||
 const openingHours = {
-  mon: {
+  Mon: {
     open: 10,
     close: 12,
   },
-  tue: {
+  Tue: {
     open: 7,
     close: 8,
   },
@@ -126,3 +126,26 @@ for (const [i, element] of menu.entries()) {
 }
 
 // console.log([...menu.entries()]);
+
+//Optional Chaining
+if (restaurant.openingHours.sun) console.log(restaurant.openingHours.sun.open);
+
+//console.log(restaurant.openingHours.wed.open); // Uncaught TypeError: Cannot read properties of undefined (reading 'open')
+
+//with optional chaining
+console.log(restaurant.openingHours?.wed?.open); //return undefined if property does not exist
+const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open || 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//on methods
+console.log(
+  restaurant.orderPasta?.('Tomota', 'Onion', 'Chius') ?? 'Method does not exist'
+);
+
+//on Arrays
+const users = [{ name: 'Prachi', email: 'hello@prachi.com' }];
+console.log(users[0]?.name ?? 'Not found');
