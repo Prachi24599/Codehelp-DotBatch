@@ -1,4 +1,14 @@
 //Short Circuting with && and ||
+const openingHours = {
+  mon: {
+    open: 10,
+    close: 12,
+  },
+  tue: {
+    open: 7,
+    close: 8,
+  },
+};
 
 const restaurant = {
   name: 'Ganesh Restaurant',
@@ -6,7 +16,28 @@ const restaurant = {
   categories: ['Maharastrian', 'South Indian', 'Kokni', 'Italian'],
   starterMenu: ['Salad', 'Papad', 'French Fries', 'Soup', 'Poha'],
   mainMenu: ['PuranPoli', 'Idali', 'Doza', 'Bhakri'],
+
+  //Before ES6, If we want to use outside object in current object then,
+  //timings: openingHours,
+
+  //after ES6, we can use same object name
+  openingHours,
+
+  //Before ES6
+  // orderPasta: function (ing1, ing2, ing3) {
+  //   console.log(`Made Pasta with ${ing1}, ${ing2}, ${ing3}`);
+  // },
+
+  //Ater ES6, we can write without fun keyword
+  orderPasta(ing1, ing2, ing3) {
+    console.log(`Made Pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+
+  //we can compute property names too
+  [`day-${2 + 4}`]: 'Monday',
 };
+console.log(restaurant);
+
 console.log('------OR-------');
 //OR operand will return first truthy value of all the operands or simply the last value if all of them are falsy
 
