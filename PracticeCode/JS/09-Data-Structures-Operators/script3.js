@@ -1,4 +1,5 @@
 //SET
+/*
 const ordersSet = new Set([
   'Pasta',
   'Pizza',
@@ -35,3 +36,41 @@ console.log(new Set(['waiter', 'manager', 'waiter', 'manager', 'clert']).size);
 
 //counting number of unique letters in string
 console.log(new Set('PrachiPolakhare').size);
+*/
+
+//MAP
+const rest = new Map();
+rest.set('name', 'Pimlico');
+rest.set(1, 'Mumbai');
+console.log(rest.set(2, 'Pune')); //set method adds new element and return the updated map
+
+rest
+  .set('categories', ['Maharastrian', 'South Indian', 'Kokni', 'Italian'])
+  .set('open', 11)
+  .set('close', 20)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 12;
+//use of boolean keys
+console.log(rest.get(time >= rest.get('open') && time <= rest.get('close')));
+
+//check if value is present in the map
+console.log(rest.has('categories')); //true
+
+rest.delete(2);
+
+//rest.set([1, 3], 'Test');
+// console.log(rest.get([1, 3])); //undefined
+const arr = [1, 3];
+rest.set(arr, 'TEst');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest.get(arr)); //TEst
+
+console.log(rest);
+//rest.clear(); //remove all the elements from the map
+console.log(rest.size); //return size of map
