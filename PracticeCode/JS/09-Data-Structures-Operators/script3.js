@@ -74,3 +74,33 @@ console.log(rest.get(arr)); //TEst
 console.log(rest);
 //rest.clear(); //remove all the elements from the map
 console.log(rest.size); //return size of map
+
+//Maps : Iteration
+//another way of creating a map is
+const question = new Map([
+  ['question', 'Which is best programming language?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['Correct', 3],
+  [true, 'Correct!'],
+  [false, 'Try again!'],
+]);
+console.log(question);
+
+//Quiz App
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') {
+    console.log(`Answer :${key} : ${value}`);
+  }
+}
+// const answer = Number(prompt('Your Answer'));
+// console.log(`You selcted ${question.get(answer)}`);
+// console.log(question.get(answer === question.get('Correct')));
+
+//convert map to an array
+console.log([...question]);
+console.log(question.entries());
+console.log([...question.keys()]);
+console.log([...question.values()]);
