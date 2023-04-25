@@ -49,7 +49,7 @@ console.log(airline.toUpperCase());
 
 //Fix capitalization in name
 const passenger = 'PrAcHi'; //Prachi
-const passengerLower = passenger.toLocaleLowerCase();
+const passengerLower = passenger.toLowerCase();
 const passengerCorrectName =
   passengerLower[0].toUpperCase() + passengerLower.slice(1);
 console.log(passengerCorrectName);
@@ -90,4 +90,51 @@ console.log(myPlane.startsWith('Air')); //true
 if (myPlane.startsWith('Airbus') && myPlane.endsWith('neo')) {
   console.log('Part of new air bus family');
 }
-//NOTE : when we get input as a strin, always convert it to lowercase first
+//NOTE : when we get input as a string, always convert it to lowercase first
+
+//split
+console.log('a+very+nice+string'.split('+')); //split the string into an array
+console.log('Prachi Polakhare'.split(' '));
+const [firstName, lastName] = 'Prachi Polakhare'.split(' ');
+console.log(firstName, lastName);
+//join
+const newName = ['Miss.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    //namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+capitalizeName('radha and sham lal');
+capitalizeName('prachi polakhare');
+
+//Padding
+const message = 'Go to gate 23';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Prachi'.padStart(10, '*').padEnd('14', '*'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  console.log(last.padStart(str.length, '*'));
+};
+maskCreditCard(34873678);
+maskCreditCard(84578634754856874356);
+maskCreditCard('876583658364534578');
+
+//Repeat - repeat the string number of times
+const message2 = 'Bad weather...All departure delayed ';
+console.log(message2.repeat(5));
+
+const planeInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
+
+planeInLine(5);
+planeInLine(2);
+planeInLine(9);
