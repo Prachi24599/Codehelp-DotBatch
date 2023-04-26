@@ -64,6 +64,18 @@ const convertCase = function (list) {
 convertCase(`underscore_case
 first_name
 Some_Variable 
- calculate_AGE
+ calculate_AGE,
 delayed_departure`);
+*/
+
+/*
+const movements = [300, -400, 200, 100, -50];
+//order of parameter matters (name does not)
+//first parameter - current array element
+//second parameter - current array index
+//third parameter - entire array
+movements.forEach(function (move, i, arr) {
+  console.log(move, i, arr);
+});
+//Note : The continue and break statement do not work in forEach loop
 */
