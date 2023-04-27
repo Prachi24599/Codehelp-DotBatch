@@ -1,6 +1,7 @@
 'use strict';
 //Default Parameter
 //we can calculate the value of default parameter by specifying expression and also based on value of previous parameters
+/*
 const bookings = [];
 const createBooking = function (
   flightNum,
@@ -98,3 +99,62 @@ greet('Hello')('Pinku');
 const greet1 = greeting => name => console.log(`${greeting} ${name}`);
 
 greet1('Hola')('Raj');
+*/
+//call and apply methods
+const indigo = {
+  airline: 'Indigo',
+  code: 'IDG',
+  bookings: [],
+  //book : function(flightNum, name)
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.code}${flightNum}`
+    );
+    this.bookings.push({
+      flight: `${this.code}${flightNum}`,
+      name,
+    });
+  },
+};
+indigo.book('123', 'Prachi Polakhare');
+indigo.book('456', 'Ram Joshi');
+console.log(indigo);
+
+const vistara = {
+  airline: 'Vistara',
+  code: 'VS',
+  bookings: [],
+};
+
+const book = indigo.book;
+//book('343', 'PP'); // TypeError: Cannot read properties of undefined (reading 'airline')
+//This is regular function call and In regular function call, this keyword points to undefined
+//this keyword depends on how the function is actually called
+
+//vistara.book('444', 'Pinku Rathod'); vistara.book is not a function
+
+//call, apply and bind
+//CALL
+book.call(vistara, '89', 'Sarah Singh');
+//first argument is what we want the this keyword to point to
+console.log(vistara);
+
+book.call(indigo, 77, 'Mary Jossy');
+console.log(indigo);
+
+const airIndia = {
+  airline: 'Air India',
+  code: 'AIR',
+  bookings: [],
+};
+book.call(airIndia, 90, 'Rebecca Irven');
+
+//APPlY - does same as call method but it does not receive list of arguments after the this keyword but
+//instead it takes array of an argument, It will then take elements from that array and will pass it to the function
+const flightData = [66, ' '];
+// book.apply(airIndia, [66, 'Karl Miler']);
+book.apply(airIndia, flightData);
+
+//Apply method is not used much now, The better way of doing this is using spread operaror with call method(to spread array data)
+book.call(airIndia, ...flightData);
+console.log(airIndia);
