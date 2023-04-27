@@ -81,3 +81,20 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Prachi', 'Radha', 'Sham'].forEach(high5); //will call the function three times
+
+//Function returning other function
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+const greetHey = greet('Hey'); //greet function returns a function that we are storing in greetHey
+greetHey('Prachi'); //calling the returned function with required argument
+greetHey('Jonas');
+
+greet('Hello')('Pinku');
+
+//rewritting same using arrow function
+const greet1 = greeting => name => console.log(`${greeting} ${name}`);
+
+greet1('Hola')('Raj');
