@@ -49,4 +49,35 @@ const newPassport = function (person) {
 };
 newPassport(prachi);
 checkIn(flight, prachi);
-console.log(prachi);
+console.log(prachi); //one object is modified by two different functions
+
+//First Class function and Higher Order Function
+//-----------------------------------------------
+const oneWord = function (str) {
+  // return str.replaceAll(' ', '');
+  return str.replace(/ /g, '');
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...other] = str.split(' ');
+  return [first.toUpperCase(), ...other].join(' ');
+};
+
+//Higher Order Function
+const transformer = function (str, fn) {
+  console.log(`Original String : ${str}`);
+  console.log(`Transformed String : ${fn(str)}`);
+  //functions have properties also
+  console.log(`Transformed by : ${fn.name}`);
+};
+
+transformer('Javascript is best language!', upperFirstWord);
+transformer('Javascript is best language!', oneWord);
+
+//JS uses callback all the time
+const high5 = function () {
+  console.log('👋');
+};
+document.body.addEventListener('click', high5);
+
+['Prachi', 'Radha', 'Sham'].forEach(high5); //will call the function three times
