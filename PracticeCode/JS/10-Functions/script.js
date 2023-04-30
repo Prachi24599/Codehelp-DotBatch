@@ -171,3 +171,17 @@ const bookVS23 = book.bind(vistara, 55); //now the flightNum is already set here
 //when we call bookVS23() we only need to pass the name
 bookVS23('Prachi Polakhare');
 bookVS23('Om Pahade');
+
+//bind method is also used when we use object together with eventListener
+indigo.planes = 300;
+indigo.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+// indigo.buyPlane();
+// document.querySelector('.buy').addEventListener('click', indigo.buyPlane); here, this keyword point to the button
+// on which click event is defined
+document
+  .querySelector('.buy')
+  .addEventListener('click', indigo.buyPlane.bind(indigo));
