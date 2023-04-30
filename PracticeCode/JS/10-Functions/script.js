@@ -105,7 +105,7 @@ const indigo = {
   airline: 'Indigo',
   code: 'IDG',
   bookings: [],
-  //book : function(flightNum, name)
+  //book : function(flightNum, name) - old syntax
   book(flightNum, name) {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.code}${flightNum}`
@@ -158,3 +158,16 @@ book.apply(airIndia, flightData);
 //Apply method is not used much now, The better way of doing this is using spread operaror with call method(to spread array data)
 book.call(airIndia, ...flightData);
 console.log(airIndia);
+
+//bind method
+
+//if we want to call book method only on vistara obj then
+const bookVS = book.bind(vistara);
+const bookIN = book.bind(indigo);
+const bookAI = book.bind(airIndia);
+bookVS(44, 'John Doe');
+
+const bookVS23 = book.bind(vistara, 55); //now the flightNum is already set here in bind fun
+//when we call bookVS23() we only need to pass the name
+bookVS23('Prachi Polakhare');
+bookVS23('Om Pahade');
