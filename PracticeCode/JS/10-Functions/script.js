@@ -185,3 +185,23 @@ indigo.buyPlane = function () {
 document
   .querySelector('.buy')
   .addEventListener('click', indigo.buyPlane.bind(indigo));
+
+//partial application - means we can preset parameters
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value * 0.23;
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+/*
+//same using function returning another fun
+const addTax2 = function (rate) {
+  return function (value) {
+    console.log(value + value * rate);
+  };
+};
+const myfun = addTax2(0.2);
+myfun(200);
+*/
