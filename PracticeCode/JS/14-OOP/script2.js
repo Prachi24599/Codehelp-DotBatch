@@ -1,33 +1,52 @@
 'use strict';
 
-//class Expression
+// class Expression
 // const Person = class {};
 
 //class Declaration
 class Person {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
   //Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
   }
-  // greet() {
-  //   console.log(`Hey ${this.firstName}`);
-  // }
+  greet() {
+    console.log(`Hey ${this.fullName}`);
+  }
+  //getter
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  //setter
+  //set a property that already exists
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+  get fullName() {
+    return this._fullName;
+  }
 }
 
-const jessica = new Person('Jessica', 1996);
+const jessica = new Person('Jessica Davis', 1996);
 console.log(jessica);
 jessica.calcAge();
+console.log(jessica.age);
+console.log(jessica.fullName);
 
 console.log(jessica.__proto__ === Person.prototype);
 
-Person.prototype.greet = function () {
-  console.log(`Hey ${this.firstName}`);
-};
+// Person.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
 jessica.greet();
+
+// const prachi = new Person('Prachi', 1999); // Prachi is not a full Name
+const prachi = new Person('Prachi P', 1999);
 
 // NOTE
 // 1. Classes are not hoisted
@@ -48,5 +67,5 @@ const account = {
   },
 };
 console.log(account.latest);
-account.latest = 50;
+account.latest = 50; // as it is property not a method so we can directly assign value
 console.log(account.movements);
