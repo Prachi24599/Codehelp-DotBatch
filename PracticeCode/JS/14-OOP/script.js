@@ -46,3 +46,9 @@ console.log(Person.prototype.isPrototypeOf(pinku)); //true
 console.log(Person.prototype.isPrototypeOf(Person)); //false
 
 // .prototypeOfLinkedObjects
+
+Person.prototype.species = 'Human';
+console.log(prachi.species, pinku.species);
+
+console.log(prachi.hasOwnProperty('firstName')); //true
+console.log(prachi.hasOwnProperty('species')); //false
