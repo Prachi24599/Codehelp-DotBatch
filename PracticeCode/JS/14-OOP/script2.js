@@ -33,3 +33,20 @@ jessica.greet();
 // 1. Classes are not hoisted
 // 2. Classes are first class citizens
 // 3. Classes are executed in strict mode
+
+//Getter and Setter Properties on Objects
+const account = {
+  owner: 'Prachi',
+  movements: [200, 530, 120, 300],
+  //getter
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+  //setter
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+console.log(account.latest);
+account.latest = 50;
+console.log(account.movements);
