@@ -27,6 +27,15 @@ const om = new Person('Om', 2004);
 console.log(pinku, om);
 console.log(prachi instanceof Person); //true
 
+//Static Method
+Person.hey = function () {
+  console.log('Hey there! ✋');
+  console.log(this); // this will return an entire constructor fun
+};
+//Calling Static Method
+Person.hey();
+prachi.hey(); //Reference Error : prachi.hey is not a function
+
 //Prototypes
 console.log(Person.prototype);
 

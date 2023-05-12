@@ -9,6 +9,7 @@ class Person {
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
+  //Instance Method
   //Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -30,6 +31,12 @@ class Person {
   get fullName() {
     return this._fullName;
   }
+
+  //Static method
+  static hey() {
+    console.log('Hey there! ✋');
+    console.log(this); // this will return an entire class
+  }
 }
 
 const jessica = new Person('Jessica Davis', 1996);
@@ -37,7 +44,7 @@ console.log(jessica);
 jessica.calcAge();
 console.log(jessica.age);
 console.log(jessica.fullName);
-
+Person.hey();
 console.log(jessica.__proto__ === Person.prototype);
 
 // Person.prototype.greet = function () {
