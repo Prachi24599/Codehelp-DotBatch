@@ -1,6 +1,6 @@
 'use strict';
 //Constructor Function
-//func declaration or function expression can be used to create cf
+//func declaration or function expression can be used to create constructor function
 
 function Person(firstName, birthYear) {
   //Instance Properties
@@ -25,5 +25,24 @@ console.log(prachi);
 const pinku = new Person('Pinku', 1998);
 const om = new Person('Om', 2004);
 console.log(pinku, om);
-
 console.log(prachi instanceof Person); //true
+
+//Prototypes
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+prachi.calcAge();
+pinku.calcAge();
+om.calcAge();
+
+console.log(prachi.__proto__);
+console.log(prachi.__proto__ === Person.prototype);
+
+console.log(Person.prototype.isPrototypeOf(prachi)); //true
+console.log(Person.prototype.isPrototypeOf(pinku)); //true
+console.log(Person.prototype.isPrototypeOf(Person)); //false
+
+// .prototypeOfLinkedObjects
