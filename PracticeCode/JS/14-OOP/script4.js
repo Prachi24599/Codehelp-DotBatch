@@ -1,5 +1,5 @@
 'use strict';
-
+//Inheritance between "Classes" : ES6 classes
 class Person {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
@@ -58,3 +58,30 @@ class Student extends Person {
 const martha = new Student('Martha Jonas', 2003, 'Computer Science');
 martha.introduce();
 martha.calcAge();
+
+//Inheritance between classes : Object.create
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+//Inheriting student prototype from PersonProto
+const studentProto = Object.create(PersonProto);
+studentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+studentProto.introduce = function () {
+  console.log(`My Name is ${this.firstName} and i study ${this.course}`);
+};
+const jay = Object.create(studentProto);
+jay.init('Jay', 1990, 'Computer');
+jay.introduce();
+jay.calcAge();
