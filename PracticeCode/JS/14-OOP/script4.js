@@ -98,7 +98,7 @@ class Account {
   locale = navigator.language;
   // _movements = [];
 
-  // 2) Private fields
+  // 2) Private fields(on instances)
   #movements = [];
   #pin;
 
@@ -120,14 +120,17 @@ class Account {
   deposit(val) {
     // this._movements.push(val);
     this.#movements.push(val);
+    return this;
   }
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
   requestLoan(val) {
     if (this.#approveLoan(val)) {
       this.deposit(val);
       console.log('Loan approved');
+      return this;
     }
   }
 
@@ -156,3 +159,7 @@ acc1.requestLoan(1000);
 // acc1._approveLoan(2000);
 // acc1.approveLoan(100); // Uncaught TypeError: acc1.approveLoan is not a function - It is considering as a private field
 Account.helper();
+
+// Chaining
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
