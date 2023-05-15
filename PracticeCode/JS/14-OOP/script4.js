@@ -91,18 +91,23 @@ class Account {
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
+    this._pin = pin;
+    //protected property
+    this._movements = [];
     this.locale = navigator.language;
     console.log(`Thanks for opening an account ${owner}`);
   }
+  // Public Interface
+  getMovements() {
+    return this._movements;
+  }
   deposit(val) {
-    this.movements.push(val);
+    this._movements.push(val);
   }
   withdraw(val) {
     this.deposit(-val);
   }
-  approveLoan(val) {
+  _approveLoan(val) {
     return val;
   }
   requestLoan(val) {
@@ -113,10 +118,15 @@ class Account {
   }
 }
 const acc1 = new Account('Prachi', 'IND', 2400);
-// acc1.movements.push(450);
-// acc1.movements.push(-100);
+// Even after making properties as protected we are still able to access it as It is just a convention
+// to indicate that we should not access this property outside
+// acc1._movements.push(450);
+// acc1._movements.push(-100);
 acc1.deposit(500);
 acc1.withdraw(350);
+
+console.log(acc1.getMovements());
+
 console.log(acc1);
 console.log(acc1.pin); // We should not be able to access this outside of class so we need data encapsulation
 acc1.requestLoan(1000);
