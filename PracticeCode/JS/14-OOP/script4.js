@@ -86,35 +86,58 @@ jay.init('Jay', 1990, 'Computer');
 jay.introduce();
 jay.calcAge();
 
+// 1) Public fields
+// 2) Private fields
+// 3) Public Methods
+// 4) Private Methods
+// There are also static version of all of this
+
 //Class Example
 class Account {
+  // 1) Public fields (on instances)
+  locale = navigator.language;
+  // _movements = [];
+
+  // 2) Private fields
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this._pin = pin;
+    this.#pin = pin;
     //protected property
-    this._movements = [];
-    this.locale = navigator.language;
+    // this._movements = [];
+    // this.locale = navigator.language;
     console.log(`Thanks for opening an account ${owner}`);
   }
+  // 3) Public Methods
   // Public Interface
   getMovements() {
-    return this._movements;
+    // return this._movements;
+    return this.#movements;
   }
   deposit(val) {
-    this._movements.push(val);
+    // this._movements.push(val);
+    this.#movements.push(val);
   }
   withdraw(val) {
     this.deposit(-val);
   }
-  _approveLoan(val) {
-    return val;
-  }
   requestLoan(val) {
-    if (this.approveLoan(val)) {
+    if (this.#approveLoan(val)) {
       this.deposit(val);
       console.log('Loan approved');
     }
+  }
+
+  static helper() {
+    console.log('Helper');
+  }
+
+  // 4) Private Methods
+  #approveLoan(val) {
+    return val;
   }
 }
 const acc1 = new Account('Prachi', 'IND', 2400);
@@ -128,6 +151,8 @@ acc1.withdraw(350);
 console.log(acc1.getMovements());
 
 console.log(acc1);
-console.log(acc1.pin); // We should not be able to access this outside of class so we need data encapsulation
+// console.log(acc1.#pin); // We should not be able to access this outside of class so we need data encapsulation
 acc1.requestLoan(1000);
-acc1.approveLoan(2000);
+// acc1._approveLoan(2000);
+// acc1.approveLoan(100); // Uncaught TypeError: acc1.approveLoan is not a function - It is considering as a private field
+Account.helper();
