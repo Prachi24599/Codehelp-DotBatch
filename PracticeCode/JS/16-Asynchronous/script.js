@@ -70,5 +70,22 @@ getCountryAndNeighbour('india');
 // request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
 // request.send();
 
-const request = fetch(`https://restcountries.com/v3.1/name/india`);
-console.log(request);
+// const getCountryData = function (country) {
+//   const request = fetch(`https://restcountries.com/v3.1/name/${country}`)
+//     .then(function (response) {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       renderData(data[0]);
+//     });
+// };
+
+//Simplified Version
+const getCountryData = country => {
+  const request = fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => response.json())
+    .then(data => renderData(data[0]));
+};
+getCountryData('india');
