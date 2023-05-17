@@ -7,7 +7,7 @@ const countriesContainer = document.querySelector('.countries');
 const renderData = function (data, className = '') {
   const html = `
 	<article class="country ${className}">
-	<img class="country__img" src="${data.flags.png}" />
+	<img class="country__img" src="${data?.flags?.png}" />
 	<div class="country__data">
 		<h3 class="country__name">${data?.name?.common}</h3>
 		<h4 class="country__region">${data?.region}</h4>
@@ -22,7 +22,6 @@ const renderData = function (data, className = '') {
   countriesContainer.insertAdjacentHTML('beforeend', html);
   countriesContainer.style.opacity = 1;
 };
-
 /*
 function getCountryAndNeighbour(country) {
   //AJAX Call Country 1
@@ -63,7 +62,6 @@ getCountryAndNeighbour('india');
 // getCountryAndNeighbour('usa');
 // getCountry('germany');
 */
-
 //Promises
 //========
 // const request = new XMLHttpRequest();
@@ -83,9 +81,20 @@ getCountryAndNeighbour('india');
 // };
 
 //Simplified Version
-const getCountryData = country => {
-  const request = fetch(`https://restcountries.com/v3.1/name/${country}`)
+const getCountryData = function (country) {
+  //Country 1
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then(response => response.json())
-    .then(data => renderData(data[0]));
+    .then(data => {
+      //The Next AJAX call for neighbour country will happen here
+      renderData(data[0]);
+      const neighbour = data[0].borders?.[0];
+      if (!neighbour) return;
+
+      //Country 2
+      return fetch(`https://restcountries.com/v3.1/alpha?codes=${neighbour}`);
+    })
+    .then(response => response.json())
+    .then(data => renderData(data[0], 'neighbour'));
 };
 getCountryData('india');
