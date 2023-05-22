@@ -4,6 +4,11 @@ const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
+function renderError(msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  // countriesContainer.style.opacity = 1;
+}
+
 const renderData = function (data, className = '') {
   const html = `
 	<article class="country ${className}">
@@ -20,7 +25,7 @@ const renderData = function (data, className = '') {
 </article>
 	`;
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  // countriesContainer.style.opacity = 1;
 };
 /*
 function getCountryAndNeighbour(country) {
@@ -80,11 +85,6 @@ getCountryAndNeighbour('india');
 //     });
 // };
 
-function renderError(msg) {
-  countriesContainer.insertAdjacentText('beforeend', msg);
-  countriesContainer.style.opacity = 1;
-}
-
 //Simplified Version
 const getCountryData = function (country) {
   //Country 1
@@ -107,10 +107,14 @@ const getCountryData = function (country) {
       // err => alert(err)
     )
     .then(data => renderData(data[0], 'neighbour'))
-    .catch(
-      // err => alert(err);
-      console.error(`$(err) 🔥🔥🔥`)
-    );
+    .catch(err => {
+      console.error(`${err} 🔥🔥🔥`);
+      renderError(`Something went wrong!! ${err.message}. Try again!`);
+    })
+    .finally(() => {
+      //We use this method for something that always needs to happen no matter the result of promise
+      countriesContainer.style.opacity = 1;
+    });
 };
 
 btn.addEventListener('click', function () {
