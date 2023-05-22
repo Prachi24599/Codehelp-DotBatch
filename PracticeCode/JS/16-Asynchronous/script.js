@@ -85,8 +85,8 @@ const getCountryData = function (country) {
   //Country 1
   fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then(
-      response => response.json(),
-      err => alert(err)
+      response => response.json()
+      // err => alert(err)
     )
     .then(data => {
       //The Next AJAX call for neighbour country will happen here
@@ -98,10 +98,14 @@ const getCountryData = function (country) {
       return fetch(`https://restcountries.com/v3.1/alpha?codes=${neighbour}`);
     })
     .then(
-      response => response.json(),
-      err => alert(err)
+      response => response.json()
+      // err => alert(err)
     )
-    .then(data => renderData(data[0], 'neighbour'));
+    .then(data => renderData(data[0], 'neighbour'))
+    .catch(
+      // err => alert(err);
+      console.error(`$(err) 🔥🔥🔥`)
+    );
 };
 
 btn.addEventListener('click', function () {
