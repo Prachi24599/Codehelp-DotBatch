@@ -80,6 +80,11 @@ getCountryAndNeighbour('india');
 //     });
 // };
 
+function renderError(msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  countriesContainer.style.opacity = 1;
+}
+
 //Simplified Version
 const getCountryData = function (country) {
   //Country 1
