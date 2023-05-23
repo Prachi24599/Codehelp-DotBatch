@@ -89,23 +89,29 @@ getCountryAndNeighbour('india');
 const getCountryData = function (country) {
   //Country 1
   fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then(
-      response => response.json()
+    .then(response => {
+      console.log(response);
+      if (!response.ok)
+        throw new Error(`Country not found! ${response.status}`);
+      return response.json();
       // err => alert(err)
-    )
+    })
     .then(data => {
       //The Next AJAX call for neighbour country will happen here
       renderData(data[0]);
-      const neighbour = data[0].borders?.[0];
+      // const neighbour = data[0].borders?.[0];
+      const neighbour = 'aadkldals';
       if (!neighbour) return;
 
       //Country 2
       return fetch(`https://restcountries.com/v3.1/alpha?codes=${neighbour}`);
     })
-    .then(
-      response => response.json()
+    .then(response => {
+      if (!response.ok)
+        throw new Error(`Country not found! ${response.status}`);
+      return response.json();
       // err => alert(err)
-    )
+    })
     .then(data => renderData(data[0], 'neighbour'))
     .catch(err => {
       console.error(`${err} 🔥🔥🔥`);
@@ -120,3 +126,4 @@ const getCountryData = function (country) {
 btn.addEventListener('click', function () {
   getCountryData('india');
 });
+// getCountryData('adsdsfsdfds');
