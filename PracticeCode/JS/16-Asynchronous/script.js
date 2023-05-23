@@ -85,8 +85,15 @@ getCountryAndNeighbour('india');
 //     });
 // };
 
+const getJSON = function (url, errorMsg = 'Something Went Wrong!!') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} ${response.status}`);
+    return response.json();
+  });
+};
+
 //Simplified Version
-const getCountryData = function (country) {
+/*const getCountryData = function (country) {
   //Country 1
   fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then(response => {
@@ -111,6 +118,36 @@ const getCountryData = function (country) {
         throw new Error(`Country not found! ${response.status}`);
       return response.json();
       // err => alert(err)
+    })
+    .then(data => renderData(data[0], 'neighbour'))
+    .catch(err => {
+      console.error(`${err} 🔥🔥🔥`);
+      renderError(`Something went wrong!! ${err.message}. Try again!`);
+    })
+    .finally(() => {
+      //We use this method for something that always needs to happen no matter the result of promise
+      countriesContainer.style.opacity = 1;
+    });
+};*/
+
+const getCountryData = function (country) {
+  //Country 1
+  getJSON(
+    `https://restcountries.com/v3.1/name/${country}`,
+    'Country Not Found!!'
+  )
+    .then(data => {
+      //The Next AJAX call for neighbour country will happen here
+      renderData(data[0]);
+      const neighbour = data[0].borders?.[0];
+      // const neighbour = 'aadkldals';
+      if (!neighbour) throw new Error('No neighbour found');
+
+      //Country 2
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha?codes=${neighbour}`,
+        'Country Not Found!!'
+      );
     })
     .then(data => renderData(data[0], 'neighbour'))
     .catch(err => {
