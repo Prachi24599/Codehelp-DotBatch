@@ -36,9 +36,33 @@ const wait = function (seconds) {
   });
 };
 //This will create a promise which will wait for 2 seconds and after 2 secs, It will resolve
-wait(2)
+wait(1)
   .then(() => {
-    console.log('I waited for 2 sec');
+    console.log('1 Sec passed');
     return wait(1);
   })
-  .then(() => console.log('I waited for 1 sec'));
+  .then(() => {
+    console.log('2 Sec passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('3 Sec passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('4 Sec passed');
+    return wait(1);
+  });
+
+// setTimeout(() => {
+//   console.log('1 Sec passed');
+//   setTimeout(() => {
+//     console.log('2 Sec passed');
+//     setTimeout(() => {
+//       console.log('3 Sec passed');
+//       setTimeout(() => {
+//         console.log('4 Sec passed');
+//       }, 4000);
+//     }, 3000);
+//   }, 2000);
+// }, 1000);
