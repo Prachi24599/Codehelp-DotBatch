@@ -22,12 +22,27 @@ const whereAmI = async function (country) {
 console.log('1. Will get Location');
 // const city = whereAmI('India');
 // console.log(city);
+
 whereAmI('India')
   .then(city => console.log(`2. ${city}`))
   //If we want to catch the error which occured in fun (before return)
   //then we need to rethrow the error from catch block of fun
   .catch(err => console.error(`2. ${err}`))
   .finally(() => console.log('3. Finished getting location'));
+
+//Using IIFE - Immedietly invoked function expression to handle the above promise using aynce-wait
+//insted of using then-catch
+
+(async function () {
+  try {
+    const city = await whereAmI('India');
+    console.log(`2. ${city}`);
+  } catch (err) {
+    console.error(`2. ${err}`);
+  } finally {
+    console.log('3. Finished getting location');
+  }
+})();
 
 //Error Handling with try..catch
 // try {
