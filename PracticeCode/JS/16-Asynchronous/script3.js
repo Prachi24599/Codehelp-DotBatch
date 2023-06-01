@@ -125,3 +125,12 @@ Promise.all([
   .then(res => console.log(res))
   .catch(err => console.error(err));
 //o/p script3.js:126 ERROR
+
+//Promise.any - take array of multiple promises and then It will returned first fulfilled promise
+Promise.any([
+  Promise.resolve('Success'),
+  Promise.reject('ERROR'),
+  Promise.resolve('Another Success'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
