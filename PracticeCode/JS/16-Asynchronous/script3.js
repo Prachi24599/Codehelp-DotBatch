@@ -84,3 +84,14 @@ const get3Countries = async function (c1, c2, c3) {
   }
 };
 get3Countries('Japan', 'China', 'India');
+
+//Other Promise Combinators : race, allSettled and any
+//Promise.race
+(async function () {
+  const res = await Promise.race([
+    getJSON(`https://restcountries.com/v3.1/name/italy`),
+    getJSON(`https://restcountries.com/v3.1/name/egypt`),
+    getJSON(`https://restcountries.com/v3.1/name/mexico`),
+  ]);
+  console.log(res[0]);
+})();
